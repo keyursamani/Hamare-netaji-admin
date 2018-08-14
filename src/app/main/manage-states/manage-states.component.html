@@ -1,0 +1,36 @@
+<div class="app-title">
+  <div>
+    <h1>States</h1>
+    <p>State List</p>
+  </div>
+
+  <a routerLink="/states" class="btn btn-outline-dark">Add State</a>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="tile">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let state of statesList">
+          <td>{{state.name}}	</td>
+          <td>{{state.active}}</td>
+          <td>
+            <a class="btn btn-outline-info fs-18" [routerLink]="['/states', state.id]"><i class="fa fa-pencil"></i></a>
+            <button class="btn btn-outline-danger fs-18 ml-1" (click)="deleteState(state.id)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
